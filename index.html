@@ -69,12 +69,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="stylesheet" type="text/css" href="css/ripple.css">
     <meta name="application-name" content="&nbsp;" />
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="mstile-144x144.png" />
-    <style type="text/css">
-
-    </style>
+    
     <style type="text/css">
         span {
             display: inline-block;
@@ -111,13 +110,21 @@
    color: #9300FD;
    text-align: center;
 }
+
+
+
     </style>
+    
+    
+
 </head>
 
 
 <body>
-    <!-- Page Wrapper -->
+    <!-- Page Wrapper --><div class="ripple" style="height: 1000px;width: 100%;background: white;display: block;">
     <div id="page" class="animsition equal" data-loader-type="loader2" data-page-loader-text="VASA" data-animsition-in="fade-in" data-animsition-out="fade-out-up-sm" style="transform-origin: 50% 50vh;">
+        
+
         <br><br>
         <center>
           <span>
@@ -135,13 +142,14 @@
                 <br>
                 <strong><a href="#home"><font color="#9300FD">Home</font></a></strong>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <strong><a href="#about"><font color="#9300FD">About</font></a></strong>
+                <strong><a href="#about"><font color="#dc93fd">About</font></a></strong>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <strong><a href="#contact"><font color="#9300FD">Contact</font></a></strong>
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                <strong><a href="#contact"><font color="#dc93fd">Contact</font></a></strong>
+
             </div>
 
             <br>
+
 
 
 
@@ -173,7 +181,7 @@
     </div>
 
 
-
+</div>
 
             <!--/ End About Section -->
             <!-- Project Order Section -->
@@ -217,6 +225,16 @@
     <!-- Facebook Pixel Code -->
 
 
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/ripple.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('.ripple').ripple({
+          color:'#dc93fd',
+          time:'1s'
+        });
+      })
+    </script>
 
     <!-- End Facebook Pixel Code -->
     <script type="text/javascript">
@@ -266,6 +284,6 @@
     </noscript>
 
     <!--/ End JS Scripts -->
-</body>
+
 
 </html>
