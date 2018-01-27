@@ -90,6 +90,26 @@
             display: none;
         }
     </style>
+    <style type="text/css">
+  .mobileShow { display: none;}
+
+  /* Smartphone Portrait and Landscape */
+  @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px){
+      .mobileShow {display: inline;}
+  }
+</style>
+    <style type="text/css">
+  .mobileHide { display: inline; }
+
+  /* Smartphone Portrait and Landscape */
+  @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px){
+     .mobileHide { display: none;}
+  }
+</style>
 </head>
 
 
@@ -102,11 +122,11 @@
                 <img src="img/logo.png">
           </span>
             <br>
-            <div id="content-mobile">
-                <hr width="60%"/>
+            <div class="mobileShow">
+            <hr width="40%"/>
             </div>
-            <div id="content-desktop">
-                <hr width="40%"/>
+            <div class="mobileHide">
+                <hr width="20%"/>
             </div>
 
             <br>
