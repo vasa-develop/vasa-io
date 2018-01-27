@@ -82,34 +82,28 @@
         img {
             width: 30%;
         }
-        #content-desktop {
-            display: inline;
-        }
 
-        #content-mobile {
-            display: none;
-        }
     </style>
     <style type="text/css">
-  .mobileShow { display: none;}
+      .mobileShow { display: none;}
 
-  /* Smartphone Portrait and Landscape */
-  @media only screen
-    and (min-device-width : 320px)
-    and (max-device-width : 480px){
-      .mobileShow {display: inline;}
-  }
-</style>
+      /* Smartphone Portrait and Landscape */
+      @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 480px){
+          .mobileShow {display: inline;}
+      }
+    </style>
     <style type="text/css">
-  .mobileHide { display: inline; }
+      .mobileHide { display: inline; }
 
-  /* Smartphone Portrait and Landscape */
-  @media only screen
-    and (min-device-width : 320px)
-    and (max-device-width : 480px){
-     .mobileHide { display: none;}
-  }
-</style>
+      /* Smartphone Portrait and Landscape */
+      @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 480px){
+         .mobileHide { display: none;}
+      }
+    </style>
 </head>
 
 
@@ -121,16 +115,26 @@
           <span>
                 <img src="img/logo.png">
           </span>
-            <br>
+
             <div class="mobileShow">
-            <hr width="40%"/>
+                <hr width="40%"/>
+                <br>
+                <strong><a href="#home"><font color="#9300FD">Home</font></a></strong>
             </div>
+
             <div class="mobileHide">
                 <hr width="20%"/>
+                <br>
+                <strong><a href="#home"><font color="#9300FD">Home</font></a></strong>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <strong><a href="#about"><font color="#9300FD">About</font></a></strong>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <strong><a href="#contact"><font color="#9300FD">Contact</font></a></strong>
+                &nbsp;&nbsp;&nbsp;&nbsp;
             </div>
 
             <br>
-            <strong><a href="#home"><font color="#9300FD">Home</font></a></strong>
+
 
 
       </center>
