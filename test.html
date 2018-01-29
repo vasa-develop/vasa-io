@@ -1,28 +1,112 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ripple</title>
 
-    <link rel="stylesheet" type="text/css" href="css/ripple.css">
-  <style type="text/css">
-  </style>
-  </head>
-  <body>
- 
-  <div class="ripple" style="height: 1000px;width: 100%;background: white;display: block;">Home</div>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
 
-    <script src="js/jquery-1.9.0.min.js"></script>
-    <script src="js/ripple.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-        $('.ripple').ripple({
-          color:'#9300FD',
-          time:'1s'
-        });
-      })
-    </script>
-  </body>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1">
+
+<title>SVG code to .png image</title>
+
+<link rel="stylesheet" href="screen.css" media="screen">
+
+<style media="screen">
+body {
+    background-color: #f0f0f0;
+    font: 1em/150% verdana, arial, helvetica, sans-serif;
+    text-align: center;
+ }
+
+#container {
+    display: inline-block;
+    padding: 2em;
+    border: 0.062em solid #999;
+    border-radius: 1em;
+    background-color: #fff;
+    box-shadow: inset 0 0 1em rgba( 0, 0, 0, 0.3 ), 
+            0.4em 0.4em 0.4em rgba( 0, 0, 0, 0.3 );
+ }
+
+h1,h2 {
+    font-size: 1em;
+ }
+
+svg, canvas {
+    display:block;
+    margin: 1em 0;
+ }
+
+.hide {
+    display: none;
+ }
+</style>
+
+</head>
+<body> 
+
+<div id="container">
+
+ <h1>this is the svg image</h1>
+
+ <svg width="548" height="174"><linearGradient id="SvgjsLinearGradient8644"><stop id="SvgjsStop8645" stop-color="#00aeef" offset="0"></stop><stop id="SvgjsStop8646" stop-color="#8e00ce" offset="1"></stop></linearGradient></g><g id="SvgjsG8640" rel="mainfill" name="symbol" feature="symbol" xmlns:name="symbol_mainfill" fill="url(#SvgjsLinearGradient8644)" transform="translate(0.0, 0.0) scale(1)"><title>vasa</title><g data-name="Group"><path data-name="Compound Path" d="M50,11.5,27.3,22V43.5l-19.6,9V78L30.4,88.5l19.6-9,19.6,9L92.3,78V52.5l-19.6-9V22ZM47,34.9v15L33.3,43.6v-15Zm6,0,13.7-6.3v15L53,49.9ZM42.7,54.6,30.4,60.2,17.9,54.5l12.3-5.7ZM33.4,65.5,47,59.2V74.3L33.4,80.5ZM53,59.2l13.6,6.3v15L53,74.3Zm16.6,1L57.3,54.6l12.5-5.8,12.3,5.7ZM62.5,23.9,50,29.7,37.5,23.9,50,18.1ZM13.7,59.1l13.7,6.4v15L13.7,74.2ZM72.6,80.5v-15l13.7-6.4V74.2Z"></path></g></g></svg>
+
+ <button>svg to png</button>
+
+ <h2 class="hide">this is the png image</h2>
+
+ <canvas width="100" height="100"></canvas>
+
+</div>
+
+<script>
+(function(w,d) {
+   'use strict';
+
+   var btn = d.querySelector( 'button' );
+   var svg = d.querySelector( 'svg' );
+   var canvas = d.querySelector( 'canvas' );
+
+   var imageName ='your-image-name';
+
+function triggerDownload ( imgURI ) {
+   var evt = new MouseEvent( 'click', {
+       view: w,
+       bubbles: false,
+       cancelable: true
+    });
+
+   var a = d.createElement( 'a' );
+       a.setAttribute( 'download', imageName + '.png' );
+       a.setAttribute( 'href', imgURI );
+       a.setAttribute( 'target', 'blank' );
+       a.dispatchEvent(evt);
+    }
+
+   btn.addEventListener( 'click', function () {
+
+   var ctx = canvas.getContext( '2d' );
+   var data = ( new XMLSerializer() ).serializeToString( svg );
+   var DOMURL = w.URL || w.webkitURL || w;
+
+   var img = new Image();
+   var svgBlob = new Blob( [data], { type: 'image/svg+xml;charset=utf-8' } );
+   var url = DOMURL.createObjectURL( svgBlob );
+
+   img.onload = function () {
+       ctx.drawImage( img, 0, 0 );
+       DOMURL.revokeObjectURL( url );
+
+    var imgURI = canvas
+        .toDataURL( 'image/png' )
+        .replace( 'image/png', 'image/octet-stream' );
+
+    triggerDownload( imgURI );
+  };
+    img.src = url;
+    d.querySelector( 'h2' ).classList.remove( 'hide' );
+ });
+}(window, document));
+</script>
+
+</body>
 </html>
